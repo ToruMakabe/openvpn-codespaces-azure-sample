@@ -35,7 +35,7 @@ A pattern that achieves the same purpose with Tailscale is the following.
 
 ## Notes
 
-### Authorization
+### OpenVPN config
 
 To allow OpenVPN client on Codespaces to connect Azure VPN Gateway, you have to pass OpenVPN config as OPENVPN_CONFIG environment variable. Storing it in Codespaces Secret is an easy way.
 
@@ -43,13 +43,9 @@ To allow OpenVPN client on Codespaces to connect Azure VPN Gateway, you have to 
 
 All certificate, key and config are stored in [Key Vault](./terraform/main.tf).
 
-#### systemd-resovled or not
+#### Azure VM / Private Endpoint DNS configuration
 
-This Terraform codes generates two types of OpenVPN config, one with systemd-resolved based environment and one is without. For the Codespaces environment created in this sample, use a config that is not for systemd-resolved.
-
-### Azure VM / Private Endpoint DNS configuration
-
-Add DNS suffix to [config file](./terraform/config/openvpn/dhcp_options) for forwarding. For examaple, you have to add the following suffixes to get this sample work
+Add DNS suffix to [config file](./terraform/config/openvpn/dhcp_options) for forwarding. For examaple, you have to add the following suffixes before applying this Terraform code to get this sample work
 
 * internal.cloudapp.net
 * web.core.windows.net
@@ -58,3 +54,7 @@ Add DNS suffix to [config file](./terraform/config/openvpn/dhcp_options) for for
 See below for other zones
 
 > [Azure Private Endpoint DNS configuration](https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-dns)
+
+#### systemd-resovled or not
+
+This Terraform codes generates two types of OpenVPN config, one with systemd-resolved based environment and one is without. For the Codespaces environment created in this sample, use a config that is not for systemd-resolved.
