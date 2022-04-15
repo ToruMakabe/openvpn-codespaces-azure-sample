@@ -532,7 +532,7 @@ resource "azurerm_key_vault_secret" "openvpn_config" {
 }
 
 resource "azurerm_key_vault_secret" "openvpn_config_systemd_resolved" {
-  name         = "openvpn-config-systemd-resolvd"
+  name         = "openvpn-config-systemd-resolved"
   value        = data.external.openvpn_config.result["openvpn_config_systemd_resolved"]
   key_vault_id = azurerm_key_vault.openvpn_sample.id
 }
