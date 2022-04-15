@@ -1,0 +1,6 @@
+dhcp-option DOMAIN internal.cloudapp.net
+dhcp-option DOMAIN web.core.windows.net
+dhcp-option DOMAIN blob.core.windows.net
+dhcp-option DOMAIN-SEARCH internal.cloudapp.net
+dhcp-option DOMAIN-SEARCH web.core.windows.net
+dhcp-option DOMAIN-SEARCH blob.core.windows.net
